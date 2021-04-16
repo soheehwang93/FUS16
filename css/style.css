@@ -32,8 +32,8 @@ body {
   height: auto;
 }
 /* 로그인 폼 */
-.login-form :focus{
-    outline: 0;
+.login-form :focus {
+  outline: 0;
 }
 .login-form fieldset {
   border: 0;
@@ -66,22 +66,23 @@ body {
   margin-bottom: 10px;
 }
 .user-email:focus-within,
-.user-password:focus-within{
-    border-color: #03cf5d;
+.user-password:focus-within {
+  border-color: #03cf5d;
 }
 .ip-state-wrapper {
   order: 1;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
 }
-.btn-login{
-    margin-top: 10px;
-    background-color: #03cf5d;
-    color: #fff;
-    font-weight: 700;
-    border: 0;
-    padding: 16px 0;
+.btn-login {
+  margin-top: 10px;
+  background-color: #03cf5d;
+  color: #fff;
+  font-weight: 700;
+  border: 0;
+  padding: 16px 0;
 }
 [name="userEmail"],
 [name="userPassword"] {
@@ -89,4 +90,52 @@ body {
   width: 100%;
   border: 0;
   padding: 5px 10px 5px 20px;
+}
+.login-state {
+  position: relative;
+}
+.login-state label {
+  display: flex;
+  align-items: center;
+}
+.login-state .icon-check {
+  width: 24px;
+  height: 24px;
+  background-image: url(./../images/icon-unchecked.svg);
+  background-size: cover;
+  margin-right: 5px;
+  cursor: pointer;
+}
+[name="state"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  background-color: transparent;
+  opacity: 0;
+  cursor: pointer;
+}
+/* [name="state"]:focus{
+    box-shadow: 0 0 0 4px deepskyblue;
+    border-radius: 2px;
+} */
+[name="state"]:checked + label .icon-check {
+  background-image: url(./../images/icon-checked.svg);
+}
+
+.login-ip label::after {
+  display: inline-block;
+  width: 36px;
+  text-align: right;
+  content: "OFF";
+  color: #03cf5d;
+  cursor: pointer;
+}
+[name="ip"]:checked + label::after {
+  content: "ON";
+}
+[name="ip"] {
+  display: none;
 }
